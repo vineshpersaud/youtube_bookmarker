@@ -1,7 +1,13 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux'
+
+import {getVideos} from '../actions/Videos.js'
 
 class Videos extends Component {
-
+  componentDidMount(){
+    getVideos()
+    debugger
+  }
 
 
 render(){
@@ -12,4 +18,10 @@ render(){
   )}
 }
 
-export default Videos;
+const mapStateToProps = (state) => {
+  return({
+    videos: state.videos
+  })
+}
+
+export default connect(mapStateToProps,{getVideos})(Videos);
