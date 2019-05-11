@@ -5,7 +5,7 @@ import {getVideos} from '../actions/Videos.js'
 
 class Videos extends Component {
   componentDidMount(){
-    getVideos()
+    this.props.getVideos()
     debugger
   }
 
