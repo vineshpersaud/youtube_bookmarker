@@ -3,17 +3,24 @@ import {connect} from 'react-redux'
 
 import {getVideos} from '../actions/Videos.js'
 
+import VideoCard from '../components/VideoCard'
+
 class Videos extends Component {
   componentDidMount(){
     this.props.getVideos()
-    debugger
   }
 
 
 render(){
+  const videosItems = this.props.videos.map(video =>(
+    <VideoCard
+      video = {video}
+    />
+  ))
   return(
     <div className="VideosContainer">
       <h1>Videos</h1>
+      {videosItems}
     </div>
   )}
 }
