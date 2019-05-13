@@ -6,6 +6,11 @@ class VideosController < ApplicationController
 
   def create
     video = Video.new(video_params)
+      if video.save
+        render json: video, :methods => :url
+      else
+        render json:{message: video.errors}, status: 400
+      end
   end
 
   def edit
