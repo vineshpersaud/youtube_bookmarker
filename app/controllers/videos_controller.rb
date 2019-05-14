@@ -20,6 +20,13 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    video = Video.find_by_id(params[:id])
+    videos = Video.all
+    if video.delete
+      render json: videos
+    else
+      render json:{message: video.errors}, status: 400
+    end
   end
 
 

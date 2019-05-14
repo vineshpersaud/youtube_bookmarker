@@ -1,19 +1,9 @@
-// export const createVideo = video => {
-//   const body = new FormData(video);
-//     body.append('video[title]', video.title);
-//     body.append('video[url]', video.url);
-//   return dispatch => {
-//   fetch('http://locahost:3001/videos', {
-//     method: 'POST',
-//     body: body
-//   })
-//   .then(function(response) {return response.json()})
-//   .then(function(body) {
-//     console.log(body);
-//   })
-//   .catch(error => console.log(error))
-// }
-// }
+const addVideo = video => {
+  return {
+    type: 'ADD_VIDEO_SUCCESS',
+    video
+  }
+}
 
 export const createVideo = (video) => {
 
@@ -27,7 +17,7 @@ export const createVideo = (video) => {
     })
       .then(response => response.json())
       .then(video => {
-        console.log(video);
+        dispatch(addVideo(video));
       })
       .catch(error => console.log(error))
   }

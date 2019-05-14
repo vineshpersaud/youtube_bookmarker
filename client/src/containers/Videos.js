@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import {getVideos} from '../actions/Videos.js'
 
+
 import VideoCard from '../components/VideoCard'
 
 class Videos extends Component {
