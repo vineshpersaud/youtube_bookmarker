@@ -12,6 +12,18 @@ const removeVideo = video => {
   }
 }
 
+
+export const deleteVideo = (video) => {
+  let videoId = video.id
+  return dispatch => {
+    return fetch(`http://localhost:3001/videos/${videoId}`, {
+      method: 'DELETE',
+      })
+      .then((video)=>{dispatch(removeVideo(videoId))})
+      .catch(error => console.log(error));
+    }
+}
+
 export const getVideos = () => {
   return dispatch => {
     return fetch(`http://localhost:3001/videos`)
@@ -19,13 +31,4 @@ export const getVideos = () => {
       .then(videos => dispatch(setVideos(videos)))
       .catch(error => console.log(error));
   }
-}
-
-export const deleteVideo = (video) => {
-  let videoId = video.id
-     return fetch(`http://localhost:3001/videos/${video.id}`, {
-     method: 'DELETE',
-      })
-      .then(res=> removeVideo(videoId))
-      .catch(error => console.log(error));
 }
