@@ -3,10 +3,7 @@ import {connect} from 'react-redux'
 import videoFormData from '../reducers/videoFormData'
 import {createVideo} from '../actions/VideosForm'
 class VideoForm extends Component {
-  state = {
-    title: '',
-    url: ''
-  }
+
 
  handelOnChange = (e) =>{
 
@@ -17,7 +14,7 @@ class VideoForm extends Component {
  }
 
  handleOnSubmit = (e)=>{
-   
+
    e.preventDefault()
    this.props.createVideo(this.state)
  }

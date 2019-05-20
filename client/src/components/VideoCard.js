@@ -7,7 +7,11 @@ import { deleteVideo } from '../actions/Videos';
 const VideoCard = ({video,props}) => (
   <div key={video.id}>
     <h3>{video.title}</h3>
-    <h3>{video.url}</h3>
+    <iframe width="560" height="315"
+      src={"https://www.youtube.com/embed/"+video.url}
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+
     <button className="myButton" onClick={() => {props.deleteVideo(video)}}>Delete</button>
 
   </div>

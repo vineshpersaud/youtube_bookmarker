@@ -4,6 +4,15 @@ class VideosController < ApplicationController
     render json:videos
   end
 
+  def show
+    video = Video.find_by_id(params[:id])
+    if video
+      render json: video, :methods => :url
+    else
+      render json:{message: "no such video"}, status: 400
+    end
+  end
+
   def create
     video = Video.new(video_params)
       if video.save

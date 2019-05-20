@@ -5,6 +5,13 @@ const addVideo = video => {
   }
 }
 
+const resetVideoFrom = (video) => {
+  return {
+    type: 'RESET_VIDEO_FORM',
+    video
+  }
+}
+
 export const createVideo = (video) => {
 
   return dispatch => {
@@ -19,6 +26,7 @@ export const createVideo = (video) => {
       .then(video => {
         dispatch(addVideo(video));
       })
+      .then(video => {dispatch(resetVideoFrom(video))})
       .catch(error => console.log(error))
   }
 }
