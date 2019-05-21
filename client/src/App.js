@@ -2,14 +2,25 @@ import React from 'react';
 import './App.css';
 
 import Videos from './containers/Videos.js'
-import VideoForm from './containers/VideoForm.js'
+import VideoShow from './containers/VideoShow.js'
 
-function App() {
+import VideoForm from './containers/VideoForm.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+
+const App = (props) => {
   return (
-    <div className="App">
-      <VideoForm />
-      <Videos />
-    </div>
+    <Router>
+      <Switch>
+        <div className="App">
+          <Route exact path="/videos" component={Videos} />
+          <Route exact path={`/videos/:videoId(\\d+)`} component={VideoShow}/>
+        </div>
+      </Switch>
+    </Router>
   );
 }
 
