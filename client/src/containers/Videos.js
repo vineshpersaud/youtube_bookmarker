@@ -7,9 +7,6 @@ import {getVideos,deleteVideo} from '../actions/Videos.js'
 import VideoCard from '../components/VideoCard'
 
 class Videos extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount(){
     this.props.getVideos()

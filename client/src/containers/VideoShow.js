@@ -10,9 +10,15 @@ class VideoShow extends Component {
   }
 
 render(){
+  let video = this.props.video
   return(
     <div className="VideosContainer">
       <h1>Video Show Page</h1>
+      <h1>{video.title}</h1>
+        <iframe width="560" height="315"
+          src={"https://www.youtube.com/embed/"+video.url}
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
     </div>
   )}
 }
